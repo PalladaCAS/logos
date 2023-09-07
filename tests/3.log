@@ -1,0 +1,7 @@
+1694095097 INIT
+1694095097 NOTE t3.c main 7 Test note
+1694095097 WARNING t3.c main 8 Test warning
+1694095097 ERROR t3.c main 9 Test error
+1694095097 DEINIT
+
+
