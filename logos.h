@@ -1,5 +1,95 @@
-#ifndef __LOGOS_LOGGING_LIBRARY__
-#define __LOGOS_LOGGING_LIBRARY__
+/**
+   @file logos.h
+   @author Centrix14
+   @date 07.09.2023
+   @brief Main file
+ */
+
+/**
+   @def logos_general_log(...)
+   @brief General logging macro
+   @param ... printf-formatted args
+ 
+   This macro does all dirty work with files. It opens LOGOS_FILENAME
+   and calls fprintf with given arguments for file.
+ */
+
+/**
+   @def logos_section(section)
+   @brief Writes section into log file
+   @param section name of the section (string)
+
+   Section contains 2 elements: time and section name
+ */
+
+/**
+   @def logos_entry(entry)
+   @brief Writes entry into log file
+   @param entry name of the entry (string)
+   @param msg entry message (string)
+
+   Entry contains these elements:
+   1. Time
+   2. Entry name
+   3. File name
+   4. Function name
+   5. Line number
+   6. Entry message
+ */
+
+/**
+   @def logos_init()
+   @brief Writes init section
+
+   All logs must start with INIT section.
+ */
+
+/**
+   @def logos_deinit()
+   @brief Writes deinit section
+
+   All logs must end up with DEINIT section.
+ */
+
+/**
+   @def logos_note(msg)
+   @brief Writes note entry
+   @param msg note message itself (string)
+
+   NOTE is a general entry for some program-specific information.
+ */
+
+/**
+   @def logos_warning(msg)
+   @brief Writes warning entry
+   @param msg warning message itself
+
+   WARNING indicates some non-critical malfunctions.
+ */
+
+/**
+   @def logos_error(msg)
+   @brief Writes error entry
+   @param msg error message itself
+
+   Use ERROR to indicate some critical, important malfunction.
+ */
+
+/**
+   @def logos_enter()
+   @brief Writes enter entry
+
+   Special type of NOTE that indicates that program enters in some function.
+ */
+
+/**
+   @def logos_leave()
+   @brief Writes leave entry
+
+   Special type of NOTE that indicates that program leaves some function.
+ */
+
+#pragma once
 
 #ifdef LOGS_ENABLE
 
@@ -70,7 +160,7 @@
 #define logos_note(msg) ;
 #define logos_warning(msg) ;
 #define logos_error(msg) ;
-
-#endif
+#define logos_enter() ;
+#define logos_leave() ;
 
 #endif
