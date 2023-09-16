@@ -76,9 +76,10 @@
  */
 
 /**
-   @def logos_fail(msg)
+   @def logos_fail(msg, code)
    @brief Version of logos_error with exiting
    @param msg error message itself
+   @param code exit code
 
    If you need to log some error and then exit from program use this macro.
  */
@@ -152,10 +153,10 @@
 #define logos_error(msg)                        \
     logos_entry("ERROR", msg)
 
-#define logos_fail(msg)                         \
+#define logos_fail(msg, code)                   \
     logos_error(msg);                           \
     logos_deinit();                             \
-    exit(0);
+    exit(code);
 
 #define logos_enter()                           \
     logos_note("ENTER");
